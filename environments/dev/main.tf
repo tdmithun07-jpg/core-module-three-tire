@@ -20,7 +20,7 @@ module "compute" {
   app_network_interface_name = "app-nic"
   db_network_interface_name  = "db-nic"
 
-  #web_public_ip_address_id = module.compute.web_public_ip_address
+  web_public_ip_address_id = module.compute.web_public_ip_address
   #app_public_ip_address_id = null
   #db_public_ip_address_id  = module.compute.db_public_ip_address
 
