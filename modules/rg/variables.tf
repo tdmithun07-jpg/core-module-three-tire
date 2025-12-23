@@ -7,5 +7,5 @@ variable "resource_group_name" {
 variable "location" {
   description = "region of the rg"
   type = string
-  default = "Central India"
+  default = "eastus"
 }

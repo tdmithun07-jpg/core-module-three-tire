@@ -2,4 +2,25 @@ module "resource_group" {
   source = "github.com/tdmithun07-jpg/core-module-three-tire/modules/rg"
 }
 
+module "network" {
+  source              = "github.com/tdmithun07-jpg/core-module-three-tire/modules/vnet"
+  resource_group_name = module.resource_group.resource_group_name
+}
+
+module "compute" {
+  source              = "github.com/tdmithun07-jpg/core-module-three-tire/modules/compute"
+  resource_group_name = module.resource_group.resource_group_name
+  location            = module.resource_group.location
+
+  web_subnet_id = module.network.web_subnet_id
+  app_subnet_id = module.network.app_subnet_id
+  db_subnet_id  = module.network.db_subnet_id
+
+  web_network_interface_name = "web-nic"
+  app_network_interface_name = "app-nic"
+  db_network_interface_name  = "db-nic"
+
+  web_nsg_id = module.network.web_nsg_id
+  app_nsg_id = module.network.app_nsg_id
+}
 

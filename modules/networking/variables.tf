@@ -17,7 +17,7 @@ variable "location" {
   type = string
 }
 
-#subnets
+#Subnet Variables
 variable "web_subnet_name" {
   description = "name of the subnet"
   type        = string
@@ -49,6 +49,25 @@ variable "db_subnet_address_prefixes" {
   description = "The address space that is used by the virtual network."
   type        = list(string)
   default = [ "10.0.3.0/24" ]
+}
+
+#NSG Variables
+variable "web_nsg_name" {
+  description = "name of the network security group"
+  type        = string
+  default = "web-nsg"
+}
+
+variable "app_nsg_name" {
+  description = "name of the network security group"
+  type        = string
+  default = "app-nsg"
+}
+
+variable "database_nsg_name" {
+  description = "name of the network security group"
+  type        = string
+  default = "database-nsg"
 }
 
 
