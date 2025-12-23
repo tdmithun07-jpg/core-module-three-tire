@@ -15,7 +15,7 @@ module "compute" {
 
   web_subnet_id = module.network.web_subnet_id
   app_subnet_id = module.network.app_subnet_id
-  db_subnet_id  = module.network.db_subnet_id
+  #db_subnet_id  = module.network.db_subnet_id
 
   web_network_interface_name = "web-nic"
   app_network_interface_name = "app-nic"

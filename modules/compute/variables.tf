@@ -40,14 +40,14 @@ variable "app_subnet_id" {
   description = "ID of the subnet"
   type = string
 }
-variable "db_network_interface_name" {
-  description = "name of nic"
-  type = string
-}
-variable "db_subnet_id" {
-  description = "ID of the subnet"
-  type = string
-}
+# variable "db_network_interface_name" {
+#   description = "name of nic"
+#   type = string
+# }
+# variable "db_subnet_id" {
+#   description = "ID of the subnet"
+#   type = string
+# }
 
 #VM Variables
 
