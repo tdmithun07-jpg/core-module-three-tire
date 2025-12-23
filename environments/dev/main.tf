@@ -20,9 +20,9 @@ module "compute" {
   web_network_interface_name = "web-nic"
   app_network_interface_name = "app-nic"
 
-  web_network_interface_ids = [azurerm_network_interface.web-nic.id]
-  app_network_interface_ids = [azurerm_network_interface.app-nic.id]
-  #db_network_interface_ids  = [azurerm_network_interface.db-nic.id]
+  web_network_interface_ids = [module.compute.web_nic_id]
+  app_network_interface_ids = [module.compute.app_nic_id]
+  #db_network_interface_ids  = [module.compute.db_nic_id]
 
   web_public_ip_address_id = module.compute.web_public_ip_address
   #app_public_ip_address_id = null
