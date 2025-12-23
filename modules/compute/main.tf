@@ -118,3 +118,5 @@ resource "azurerm_network_interface_security_group_association" "nic_group_app" 
   network_interface_id = azurerm_network_interface.app-nic.id
   network_security_group_id = var.app_nsg_id
 }
+
+#testcommnet
