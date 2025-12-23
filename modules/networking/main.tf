@@ -12,6 +12,7 @@ resource "azurerm_subnet" "web_subnet" {
     resource_group_name  = var.resource_group_name
     virtual_network_name = var.vnet_name
     address_prefixes     = var.web_subnet_address_prefixes
+    depends_on = [azurerm_virtual_network.vnet]
 }
 
 resource "azurerm_subnet" "app_subnet" {
@@ -19,6 +20,7 @@ resource "azurerm_subnet" "app_subnet" {
     resource_group_name  = var.resource_group_name
     virtual_network_name = var.vnet_name
     address_prefixes     = var.app_subnet_address_prefixes
+    depends_on = [azurerm_virtual_network.vnet]
 }
 
 resource "azurerm_subnet" "db_subnet" {
@@ -26,6 +28,7 @@ resource "azurerm_subnet" "db_subnet" {
     resource_group_name  = var.resource_group_name
     virtual_network_name = var.vnet_name
     address_prefixes     = var.db_subnet_address_prefixes
+    depends_on = [azurerm_virtual_network.vnet]
 }
 
 #NETWORK SECURITY GROUPS
