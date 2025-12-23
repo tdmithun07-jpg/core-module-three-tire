@@ -1,7 +1,7 @@
 variable "vnet_name" {
   description = "name of the virtual network"
   type        = string
-  default = "dev-vnet"
+  default = "dev-virtual-network"
 }
 variable "address_space" {
   description = "The address space that is used by the virtual network."
