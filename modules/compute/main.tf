@@ -44,7 +44,7 @@ resource "azurerm_linux_virtual_machine" "web-vm" {
   size                = "Standard_DC1ds_v3"
   admin_username      = "web-adminuser"
   network_interface_ids = [
-    var.web_network_interface_name
+    azurerm_network_interface.web-nic.id
   ]
 
   admin_ssh_key {
@@ -92,7 +92,7 @@ resource "azurerm_linux_virtual_machine" "app-vm" {
   location            = var.location
   size                = "Standard_DC1ds_v3"
   admin_username      = "app-adminuser"
-  network_interface_ids = null
+  network_interface_ids = var.app_network_interface_ids
 
   admin_ssh_key {
     username   = "app-adminuser"

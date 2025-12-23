@@ -66,6 +66,18 @@ variable "db_virtual_machine_name" {
   type = string
   default = "db-vm"
 }
+variable "web_network_interface_ids" {
+    description = "network interface ids"
+    type = list(string)
+}
+variable "app_network_interface_ids" {
+    description = "network interface ids"
+    type = list(string)
+}
+variable "db_network_interface_ids" {
+    description = "network interface ids"
+    type = list(string)
+}
 
 #NIC grouping variable
 variable "web_nsg_id" {
