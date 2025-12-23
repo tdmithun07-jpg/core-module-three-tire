@@ -21,7 +21,7 @@ variable "location" {
 variable "web_subnet_name" {
   description = "name of the subnet"
   type        = string
-  default = "web_subnet"
+  default = "web-subnet"
 }
 variable "web_subnet_address_prefixes" {
   description = "The address space that is used by the virtual network."
@@ -32,7 +32,7 @@ variable "web_subnet_address_prefixes" {
 variable "app_subnet_name" {
   description = "name of the subnet"
   type        = string
-  default = "app_subnet"
+  default = "app-subnet"
 }
 variable "app_subnet_address_prefixes" {
   description = "The address space that is used by the virtual network."
@@ -43,7 +43,7 @@ variable "app_subnet_address_prefixes" {
 variable "db_subnet_name" {
   description = "name of the subnet"
   type        = string
-  default = "db_subnet"
+  default = "db-subnet"
 }
 variable "db_subnet_address_prefixes" {
   description = "The address space that is used by the virtual network."
