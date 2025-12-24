@@ -119,4 +119,4 @@ resource "azurerm_network_interface_security_group_association" "nic_group_app" 
   network_security_group_id = var.app_nsg_id
 }
 
-#testcommnet
+
