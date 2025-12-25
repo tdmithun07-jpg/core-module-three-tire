@@ -33,3 +33,14 @@ output "db_nsg_id" {
   value = azurerm_network_security_group.database_nsg.id
 }
 
+#NIC IDS
+output "web_nic_id" {
+  value = azurerm_network_interface.web-nic.id
+}
+output "app_nic_id" {
+  value = azurerm_network_interface.app-nic.id
+}
+output "db_nic_id" {
+  value = azurerm_network_interface.db-nic.id
+}
+
