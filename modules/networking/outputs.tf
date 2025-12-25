@@ -34,17 +34,17 @@ output "db_nsg_id" {
 }
 
 #NIC IDS
-output "web_nic_id" {
-  value = azurerm_network_interface.web-nic.id
-}
-output "app_nic_id" {
-  value = azurerm_network_interface.app-nic.id
-}
-output "db_nic_id" {
-  value = azurerm_network_interface.db-nic.id
-}
+# output "web_nic_id" {
+#   value = azurerm_network_interface.web-nic.id
+# }
+# output "app_nic_id" {
+#   value = azurerm_network_interface.app-nic.id
+# }
+# output "db_nic_id" {
+#   value = azurerm_network_interface.db-nic.id
+# }
 
-#PUBLIC IP
-output "web_public_ip_address" {
-  value = azurerm_public_ip.web-ip.ip_address
-}
+# #PUBLIC IP
+# output "web_public_ip_address" {
+#   value = azurerm_public_ip.web-ip.ip_address
+# }
