@@ -150,8 +150,8 @@ resource "azurerm_network_interface" "web-nic" {
   }
 }
 
-resource "azurerm_network_interface_security_group_association" "nic_group_web" {
-  network_interface_id = azurerm_network_interface.web-nic.id
+resource "azurerm_subnet_network_security_group_association" "nic_group_web" {
+  subnet_id = azurerm_subnet.web_subnet.id
   network_security_group_id = azurerm_network_security_group.web_nsg.id
 }
 
@@ -172,8 +172,9 @@ resource "azurerm_network_interface" "app-nic" {
   }
 } 
 
-resource "azurerm_network_interface_security_group_association" "nic_group_app" {
-  network_interface_id = azurerm_network_interface.app-nic.id
+resource "azurerm_subnet_network_security_group_association" "nic_group_app" {
+  #network_interface_id = azurerm_network_interface.app-nic.id   #use this to attach nsg to nic
+  subnet_id = azurerm_subnet.app_subnet.id
   network_security_group_id = azurerm_network_security_group.app_nsg.id
 }
 
@@ -194,7 +195,8 @@ resource "azurerm_network_interface" "db-nic" {
   }
 }
 
-resource "azurerm_network_interface_security_group_association" "nic_group_db" {
-  network_interface_id = azurerm_network_interface.db-nic.id
+resource "azurerm_subnet_network_security_group_association" "nic_group_db" {
+  #network_interface_id = azurerm_network_interface.db-nic.id
+  subnet_id = azurerm_subnet.db_subnet.id
   network_security_group_id = azurerm_network_security_group.database_nsg.id
 }
