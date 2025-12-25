@@ -16,7 +16,7 @@ module "compute" {
   web_subnet_id = module.network.web_subnet_id
   app_subnet_id = module.network.app_subnet_id
   db_subnet_id = module.network.db_subnet_id
-  
+
   # web_network_interface_ids = [module.network.web_nic_id]
   # app_network_interface_ids = [module.network.app_nic_id]
   # db_network_interface_ids = [module.network.db_nic_id]
@@ -25,4 +25,4 @@ module "compute" {
   # app_nsg_id = module.network.app_nsg_id
   # db_nsg_id = module.network.db_nsg_id
 }
-#testcomment
+
