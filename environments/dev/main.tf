@@ -17,8 +17,8 @@ module "compute" {
   app_network_interface_ids = [module.network.app_nic_id]
   db_network_interface_ids = [module.network.db_nic_id]
 
-  web_nsg_id = module.network.web_nsg_id
-  app_nsg_id = module.network.app_nsg_id
-  db_nsg_id = module.network.db_nsg_id
+  # web_nsg_id = module.network.web_nsg_id
+  # app_nsg_id = module.network.app_nsg_id
+  # db_nsg_id = module.network.db_nsg_id
 }
 #testcomment

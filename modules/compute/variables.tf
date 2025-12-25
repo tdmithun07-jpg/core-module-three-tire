@@ -89,14 +89,14 @@ variable "web_network_interface_ids" {
 }
 
 #NIC grouping variable
-variable "web_nsg_id" {
-  description = "network security group id"
-  type = string
-}
-variable "app_nsg_id" {
-  description = "network security group id"
-  type = string
-}
-variable "db_nsg_id" {
-  description = "network security group id"
-}
+# variable "web_nsg_id" {
+#   description = "network security group id"
+#   type = string
+# }
+# variable "app_nsg_id" {
+#   description = "network security group id"
+#   type = string
+# }
+# variable "db_nsg_id" {
+#   description = "network security group id"
+# }
