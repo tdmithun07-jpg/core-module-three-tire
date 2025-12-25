@@ -144,10 +144,10 @@ resource "azurerm_network_interface" "web-nic" {
     private_ip_address_allocation = "Dynamic"
     public_ip_address_id          = azurerm_public_ip.web-ip.id
   }
-  depends_on = [ azurerm_subnet.web_subnet ]
-  lifecycle {
-    create_before_destroy = true
-  }
+  # depends_on = [ azurerm_subnet.web_subnet ]
+  # lifecycle {
+  #   create_before_destroy = true
+  # }
 }
 
 resource "azurerm_subnet_network_security_group_association" "nic_group_web" {
@@ -166,10 +166,10 @@ resource "azurerm_network_interface" "app-nic" {
     subnet_id                     = azurerm_subnet.app_subnet.id
     private_ip_address_allocation = "Dynamic"
   }
-  depends_on = [ azurerm_subnet.app_subnet ]
-  lifecycle {
-    create_before_destroy = true
-  }
+  # depends_on = [ azurerm_subnet.app_subnet ]
+  # lifecycle {
+  #   create_before_destroy = true
+  # }
 } 
 
 resource "azurerm_subnet_network_security_group_association" "nic_group_app" {
@@ -189,10 +189,10 @@ resource "azurerm_network_interface" "db-nic" {
     subnet_id                     = azurerm_subnet.db_subnet.id
     private_ip_address_allocation = "Dynamic"
   }
-  depends_on = [ azurerm_subnet.db_subnet ]
-  lifecycle {
-    create_before_destroy = true
-  }
+  # depends_on = [ azurerm_subnet.db_subnet ]
+  # lifecycle {
+  #   create_before_destroy = true
+  # }
 }
 
 resource "azurerm_subnet_network_security_group_association" "nic_group_db" {

@@ -63,7 +63,7 @@ resource "azurerm_linux_virtual_machine" "web-vm" {
     version   = "latest"
   }
 
-  depends_on = [ var.web_network_interface_ids ]
+  #depends_on = [ var.web_network_interface_ids ]
 }
 
 # resource "azurerm_network_interface_security_group_association" "nic_group_web" {
@@ -111,7 +111,7 @@ resource "azurerm_linux_virtual_machine" "app-vm" {
     sku       = "20_04-lts-gen2"
     version   = "latest"
   }
-  depends_on = [ var.app_network_interface_ids ]
+  #depends_on = [ var.app_network_interface_ids ]
 }
 
 # resource "azurerm_network_interface_security_group_association" "nic_group_app" {
@@ -146,5 +146,5 @@ resource "azurerm_linux_virtual_machine" "db-vm" {
     sku       = "20_04-lts-gen2"
     version   = "latest"
   }
-  depends_on = [ var.db_network_interface_ids ]
+  #depends_on = [ var.db_network_interface_ids ]
 }
