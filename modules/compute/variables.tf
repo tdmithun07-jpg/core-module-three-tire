@@ -85,7 +85,7 @@ variable "db_network_interface_ids" {
 }
 variable "web_network_interface_ids" {
   description = "web nic id"
-  type = string
+  type = list(string)
 }
 
 #NIC grouping variable
