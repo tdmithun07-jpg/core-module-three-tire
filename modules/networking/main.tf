@@ -134,7 +134,7 @@ resource "azurerm_public_ip" "web-ip" {
 
 #NIC AND NSG ASSOCIATIONS for web
 resource "azurerm_network_interface" "web-nic" {
-  name                = "web-nic"
+  name                = var.web_nic_name
   location            = var.location
   resource_group_name = var.resource_group_name
 
@@ -144,7 +144,11 @@ resource "azurerm_network_interface" "web-nic" {
     private_ip_address_allocation = "Dynamic"
     public_ip_address_id          = azurerm_public_ip.web-ip.id
   }
+  lifecycle {
+    create_before_destroy = true
+  }
 }
+
 resource "azurerm_network_interface_security_group_association" "nic_group_web" {
   network_interface_id = azurerm_network_interface.web-nic.id
   network_security_group_id = azurerm_network_security_group.web_nsg.id
@@ -152,7 +156,7 @@ resource "azurerm_network_interface_security_group_association" "nic_group_web" 
 
 #NIC AND NSG ASSOCIATIONS for app
 resource "azurerm_network_interface" "app-nic" {
-  name                = "app-nic"
+  name                = var.app_nic_name
   location            = var.location
   resource_group_name = var.resource_group_name
 
@@ -161,7 +165,11 @@ resource "azurerm_network_interface" "app-nic" {
     subnet_id                     = azurerm_subnet.app_subnet.id
     private_ip_address_allocation = "Dynamic"
   }
+  lifecycle {
+    create_before_destroy = true
+  }
 } 
+
 resource "azurerm_network_interface_security_group_association" "nic_group_app" {
   network_interface_id = azurerm_network_interface.app-nic.id
   network_security_group_id = azurerm_network_security_group.app_nsg.id
@@ -169,7 +177,7 @@ resource "azurerm_network_interface_security_group_association" "nic_group_app" 
 
 #NIC AND NSG ASSOCIATIONS for db
 resource "azurerm_network_interface" "db-nic" {
-  name                = "db-nic"
+  name                = var.db_nic_name
   location            = var.location
   resource_group_name = var.resource_group_name
 
@@ -177,6 +185,9 @@ resource "azurerm_network_interface" "db-nic" {
     name                          = "db_configuration1"
     subnet_id                     = azurerm_subnet.db_subnet.id
     private_ip_address_allocation = "Dynamic"
+  }
+  lifecycle {
+    create_before_destroy = true
   }
 }
 

@@ -70,6 +70,22 @@ variable "database_nsg_name" {
   default = "database-nsg"
 }
 
+#NIC Variables
+variable "web_nic_name" {
+  description = "name of nic"
+  type = string
+  default = "web-nic"
+}
+variable "app_nic_name" {
+  description = "name of nic"
+  type = string
+  default = "app-nic"
+}
+variable "db_nic_name" {
+  description = "name of nic"
+  type = string
+  default = "db-nic"
+}
 
 
 
