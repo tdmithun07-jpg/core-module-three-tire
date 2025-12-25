@@ -44,3 +44,7 @@ output "db_nic_id" {
   value = azurerm_network_interface.db-nic.id
 }
 
+#PUBLIC IP
+output "web_public_ip_address" {
+  value = azurerm_public_ip.web-ip.ip_address
+}

@@ -16,6 +16,11 @@ variable "resource_group_name" {
 #   default = "web-public-ip"
 # }
 
+# variable "web_network_interface_ids" {
+#   description = "network interface ids"
+#   type = list(string)
+# }
+
 
 #NIC Variables
 
@@ -66,10 +71,10 @@ variable "db_virtual_machine_name" {
   type = string
   default = "db-vm"
 }
-variable "web_network_interface_ids" {
-    description = "network interface ids"
-    type = list(string)
-}
+# variable "web_network_interface_ids" {
+#     description = "network interface ids"
+#     type = list(string)
+# }
 variable "app_network_interface_ids" {
     description = "network interface ids"
     type = list(string)
@@ -77,6 +82,10 @@ variable "app_network_interface_ids" {
 variable "db_network_interface_ids" {
     description = "network interface ids"
     type = list(string)
+}
+variable "web_network_interface_ids" {
+  description = "web nic id"
+  type = string
 }
 
 #NIC grouping variable

@@ -44,7 +44,7 @@ resource "azurerm_linux_virtual_machine" "web-vm" {
   size                = "Standard_DC1ds_v3"
   admin_username      = "web-adminuser"
   network_interface_ids = [
-    var.network_interface_ids[0]
+    var.web_network_interface_ids
   ]
 
   admin_ssh_key {

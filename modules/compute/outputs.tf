@@ -18,7 +18,7 @@ output "app_vm_id" {
 #   value = azurerm_linux_virtual_machine.db-vm.id
 # }
 
-#PUBLIC IP
-output "web_public_ip_address" {
-  value = azurerm_public_ip.web-ip.ip_address
-}
+# #PUBLIC IP
+# output "web_public_ip_address" {
+#   value = azurerm_public_ip.web-ip.ip_address
+# }
