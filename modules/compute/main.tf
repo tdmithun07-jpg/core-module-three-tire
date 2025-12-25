@@ -35,6 +35,9 @@ resource "azurerm_network_interface" "web-nic" {
     private_ip_address_allocation = "Dynamic"
     public_ip_address_id          = azurerm_public_ip.web-ip.id
   }
+    lifecycle {
+    create_before_destroy = true
+  }
 }
 
 resource "azurerm_linux_virtual_machine" "web-vm" {
@@ -83,6 +86,9 @@ resource "azurerm_network_interface" "app-nic" {
     subnet_id                     = var.app_subnet_id
     private_ip_address_allocation = "Dynamic"
   }
+    lifecycle {
+    create_before_destroy = true
+  }
 }
 
 resource "azurerm_linux_virtual_machine" "app-vm" {
@@ -129,7 +135,9 @@ resource "azurerm_network_interface" "db-nic" {
     subnet_id                     = var.db_subnet_id
     private_ip_address_allocation = "Dynamic"
   }
-  
+    lifecycle {
+    create_before_destroy = true
+  }
 }
 
 resource "azurerm_linux_virtual_machine" "db-vm" {
