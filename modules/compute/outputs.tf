@@ -22,3 +22,4 @@ output "app_vm_id" {
 output "web_public_ip_address" {
   value = azurerm_public_ip.web-ip.ip_address
 }
+#testcomment
