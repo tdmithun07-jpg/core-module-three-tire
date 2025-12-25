@@ -13,22 +13,17 @@ module "compute" {
   resource_group_name = module.resource_group.resource_group_name
   location            = module.resource_group.location
 
-  web_subnet_id = module.network.web_subnet_id
-  app_subnet_id = module.network.app_subnet_id
-  #db_subnet_id  = module.network.db_subnet_id
+  web_nsg_id          = module.network.web_nsg_id
+  app_nsg_id          = module.network.app_nsg_id
+  db_nsg_id           = module.network.db_nsg_id
 
-  web_network_interface_name = "web-nic"
-  app_network_interface_name = "app-nic"
+  web_subnet_id       = module.network.web_subnet_id
+  app_subnet_id       = module.network.app_subnet_id
+  db_subnet_id        = module.network.db_subnet_id
 
-  web_network_interface_ids = [module.compute.web_nic_id]
-  app_network_interface_ids = [module.compute.app_nic_id]
-  #db_network_interface_ids  = [module.compute.db_nic_id]
+  web_public_ip_address_id = module.network.web_public_ip_id
+  app_public_ip_address_id = module.network.app_public_ip_id
+  db_public_ip_address_id  = module.network.db_public_ip_id
 
-  web_public_ip_address_id = module.compute.web_public_ip_address
-  #app_public_ip_address_id = null
-  #db_public_ip_address_id  = module.compute.db_public_ip_address
-
-  web_nsg_id = module.network.web_nsg_id
-  app_nsg_id = module.network.app_nsg_id
 }
 

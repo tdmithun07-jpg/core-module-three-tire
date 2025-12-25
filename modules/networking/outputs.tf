@@ -32,3 +32,4 @@ output "app_nsg_id" {
 output "db_nsg_id" {
   value = azurerm_network_security_group.database_nsg.id
 }
+

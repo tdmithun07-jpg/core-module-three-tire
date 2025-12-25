@@ -123,4 +123,64 @@ resource "azurerm_network_security_group" "database_nsg" {
   }
 }
 
+#WEB IP
+resource "azurerm_public_ip" "web-ip" {
+  name                = "web-ip"
+  location            = var.location
+  resource_group_name = var.resource_group_name
+  allocation_method   = "Static"
+  #sku = "Basic"
+}
 
+#NIC AND NSG ASSOCIATIONS for web
+resource "azurerm_network_interface" "web-nic" {
+  name                = "web-nic"
+  location            = var.location
+  resource_group_name = var.resource_group_name
+
+  ip_configuration {
+    name                          = "public_configuration1"
+    subnet_id                     = azurerm_subnet.web_subnet.id
+    private_ip_address_allocation = "Dynamic"
+    public_ip_address_id          = azurerm_public_ip.web-ip.id
+  }
+}
+resource "azurerm_network_interface_security_group_association" "nic_group_web" {
+  network_interface_id = azurerm_network_interface.web-nic.id
+  network_security_group_id = azurerm_network_security_group.web_nsg.id
+}
+
+#NIC AND NSG ASSOCIATIONS for app
+resource "azurerm_network_interface" "app-nic" {
+  name                = "app-nic"
+  location            = var.location
+  resource_group_name = var.resource_group_name
+
+  ip_configuration {
+    name                          = "app_configuration1"
+    subnet_id                     = azurerm_subnet.app_subnet.id
+    private_ip_address_allocation = "Dynamic"
+  }
+} 
+resource "azurerm_network_interface_security_group_association" "nic_group_app" {
+  network_interface_id = azurerm_network_interface.app-nic.id
+  network_security_group_id = azurerm_network_security_group.app_nsg.id
+}
+
+#NIC AND NSG ASSOCIATIONS for db
+resource "azurerm_network_interface" "db-nic" {
+  name                = "db-nic"
+  location            = var.location
+  resource_group_name = var.resource_group_name
+
+  ip_configuration {
+    name                          = "db_configuration1"
+    subnet_id                     = azurerm_subnet.db_subnet.id
+    private_ip_address_allocation = "Dynamic"
+  }
+}
+
+resource "azurerm_network_interface_security_group_association" "nic_group_db" {
+  network_interface_id = azurerm_network_interface.db-nic.id
+  network_security_group_id = azurerm_network_security_group.database_nsg.id
+}
