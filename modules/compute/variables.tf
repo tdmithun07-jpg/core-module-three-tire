@@ -3,56 +3,45 @@ variable "location" {
   type = string
   #default = "eastus"
 }
-
 variable "resource_group_name" {
   description = "name of resource group"
   type = string
 #   default = "dev-rg"
 }
-
-# variable "web_ip_name" {
-#   description = "name of the public ip"
-#   type = string
-#   default = "web-public-ip"
-# }
-
-# variable "web_network_interface_ids" {
-#   description = "network interface ids"
-#   type = list(string)
-# }
-
+variable "web_ip_name" {
+  description = "name of the public ip"
+  type = string
+  default = "web-public-ip"
+}
 
 #NIC Variables
 
-# variable "web_network_interface_name" {
-#   description = "name of nic"
-#   type = string
-# #   default = "public_nic"
-# }
-# variable "web_subnet_id" {
-#   description = "ID of the subnet"
-#   type = string
-# }
-# variable "web_public_ip_address_id" {
-#   description = "public ip address"
-#   type = string
-# }
-# variable "app_network_interface_name" {
-#   description = "name of nic"
-#   type = string
-# }
-# variable "app_subnet_id" {
-#   description = "ID of the subnet"
-#   type = string
-# }
-# variable "db_network_interface_name" {
-#   description = "name of nic"
-#   type = string
-# }
-# variable "db_subnet_id" {
-#   description = "ID of the subnet"
-#   type = string
-# }
+variable "web_network_interface_name" {
+  description = "name of nic"
+  type = string
+#   default = "public_nic"
+}
+variable "web_subnet_id" {
+  description = "ID of the subnet"
+  type = string
+}
+
+variable "app_network_interface_name" {
+  description = "name of nic"
+  type = string
+}
+variable "app_subnet_id" {
+  description = "ID of the subnet"
+  type = string
+}
+variable "db_network_interface_name" {
+  description = "name of nic"
+  type = string
+}
+variable "db_subnet_id" {
+  description = "ID of the subnet"
+  type = string
+}
 
 #VM Variables
 
@@ -71,32 +60,5 @@ variable "db_virtual_machine_name" {
   type = string
   default = "db-vm"
 }
-# variable "web_network_interface_ids" {
-#     description = "network interface ids"
-#     type = list(string)
-# }
-variable "app_network_interface_ids" {
-    description = "network interface ids"
-    type = list(string)
-}
-variable "db_network_interface_ids" {
-    description = "network interface ids"
-    type = list(string)
-}
-variable "web_network_interface_ids" {
-  description = "web nic id"
-  type = list(string)
-}
 
-#NIC grouping variable
-# variable "web_nsg_id" {
-#   description = "network security group id"
-#   type = string
-# }
-# variable "app_nsg_id" {
-#   description = "network security group id"
-#   type = string
-# }
-# variable "db_nsg_id" {
-#   description = "network security group id"
-# }
+

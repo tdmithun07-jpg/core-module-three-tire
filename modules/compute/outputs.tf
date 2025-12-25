@@ -1,12 +1,12 @@
-# output "web_nic_id" {
-#   value = azurerm_network_interface.web-nic.id
+output "web_nic_id" {
+  value = azurerm_network_interface.web-nic.id
+}
+output "app_nic_id" {
+  value = azurerm_network_interface.app-nic.id
+}
+# output "db_nic_id" {
+#   value = azurerm_network_interface.db-nic.id
 # }
-# output "app_nic_id" {
-#   value = azurerm_network_interface.app-nic.id
-# }
-# # output "db_nic_id" {
-# #   value = azurerm_network_interface.db-nic.id
-# # }
 
 output "web_vm_id" {
   value = azurerm_linux_virtual_machine.web-vm.id

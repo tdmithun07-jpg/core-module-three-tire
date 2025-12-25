@@ -124,53 +124,53 @@ resource "azurerm_network_security_group" "database_nsg" {
 }
 
 #WEB IP
-resource "azurerm_public_ip" "web-ip" {
-  name                = "web-ip"
-  location            = var.location
-  resource_group_name = var.resource_group_name
-  allocation_method   = "Static"
-  #sku = "Basic"
-}
+# resource "azurerm_public_ip" "web-ip" {
+#   name                = "web-ip"
+#   location            = var.location
+#   resource_group_name = var.resource_group_name
+#   allocation_method   = "Static"
+#   #sku = "Basic"
+# }
 
 #NIC AND NSG ASSOCIATIONS for web
-resource "azurerm_network_interface" "web-nic" {
-  name                = var.web_nic_name
-  location            = var.location
-  resource_group_name = var.resource_group_name
+# resource "azurerm_network_interface" "web-nic" {
+#   name                = var.web_nic_name
+#   location            = var.location
+#   resource_group_name = var.resource_group_name
 
-  ip_configuration {
-    name                          = "public_configuration1"
-    subnet_id                     = azurerm_subnet.web_subnet.id
-    private_ip_address_allocation = "Dynamic"
-    public_ip_address_id          = azurerm_public_ip.web-ip.id
-  }
+#   ip_configuration {
+#     name                          = "public_configuration1"
+#     subnet_id                     = azurerm_subnet.web_subnet.id
+#     private_ip_address_allocation = "Dynamic"
+#     public_ip_address_id          = azurerm_public_ip.web-ip.id
+#   }
   # depends_on = [ azurerm_subnet.web_subnet ]
   # lifecycle {
   #   create_before_destroy = true
   # }
-}
+# }
 
 resource "azurerm_subnet_network_security_group_association" "nic_group_web" {
   subnet_id = azurerm_subnet.web_subnet.id
   network_security_group_id = azurerm_network_security_group.web_nsg.id
 }
 
-#NIC AND NSG ASSOCIATIONS for app
-resource "azurerm_network_interface" "app-nic" {
-  name                = var.app_nic_name
-  location            = var.location
-  resource_group_name = var.resource_group_name
+# #NIC AND NSG ASSOCIATIONS for app
+# resource "azurerm_network_interface" "app-nic" {
+#   name                = var.app_nic_name
+#   location            = var.location
+#   resource_group_name = var.resource_group_name
 
-  ip_configuration {
-    name                          = "app_configuration1"
-    subnet_id                     = azurerm_subnet.app_subnet.id
-    private_ip_address_allocation = "Dynamic"
-  }
-  # depends_on = [ azurerm_subnet.app_subnet ]
-  # lifecycle {
-  #   create_before_destroy = true
-  # }
-} 
+#   ip_configuration {
+#     name                          = "app_configuration1"
+#     subnet_id                     = azurerm_subnet.app_subnet.id
+#     private_ip_address_allocation = "Dynamic"
+#   }
+#   # depends_on = [ azurerm_subnet.app_subnet ]
+#   # lifecycle {
+#   #   create_before_destroy = true
+#   # }
+# } 
 
 resource "azurerm_subnet_network_security_group_association" "nic_group_app" {
   #network_interface_id = azurerm_network_interface.app-nic.id   #use this to attach nsg to nic
@@ -178,22 +178,22 @@ resource "azurerm_subnet_network_security_group_association" "nic_group_app" {
   network_security_group_id = azurerm_network_security_group.app_nsg.id
 }
 
-#NIC AND NSG ASSOCIATIONS for db
-resource "azurerm_network_interface" "db-nic" {
-  name                = var.db_nic_name
-  location            = var.location
-  resource_group_name = var.resource_group_name
+# #NIC AND NSG ASSOCIATIONS for db
+# resource "azurerm_network_interface" "db-nic" {
+#   name                = var.db_nic_name
+#   location            = var.location
+#   resource_group_name = var.resource_group_name
 
-  ip_configuration {
-    name                          = "db_configuration1"
-    subnet_id                     = azurerm_subnet.db_subnet.id
-    private_ip_address_allocation = "Dynamic"
-  }
-  # depends_on = [ azurerm_subnet.db_subnet ]
-  # lifecycle {
-  #   create_before_destroy = true
-  # }
-}
+#   ip_configuration {
+#     name                          = "db_configuration1"
+#     subnet_id                     = azurerm_subnet.db_subnet.id
+#     private_ip_address_allocation = "Dynamic"
+#   }
+#   # depends_on = [ azurerm_subnet.db_subnet ]
+#   # lifecycle {
+#   #   create_before_destroy = true
+#   # }
+# }
 
 resource "azurerm_subnet_network_security_group_association" "nic_group_db" {
   #network_interface_id = azurerm_network_interface.db-nic.id
