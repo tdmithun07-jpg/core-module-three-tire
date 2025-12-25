@@ -38,7 +38,7 @@ variable "app_subnet_id" {
 variable "db_network_interface_name" {
   description = "name of nic"
   type = string
-  default = "db-nic"
+  default = "database-nic"
 }
 variable "db_subnet_id" {
   description = "ID of the subnet"
