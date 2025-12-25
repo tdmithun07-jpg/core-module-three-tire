@@ -19,7 +19,7 @@ variable "web_ip_name" {
 variable "web_network_interface_name" {
   description = "name of nic"
   type = string
-#   default = "public_nic"
+   default = "web-nic"
 }
 variable "web_subnet_id" {
   description = "ID of the subnet"
@@ -29,6 +29,7 @@ variable "web_subnet_id" {
 variable "app_network_interface_name" {
   description = "name of nic"
   type = string
+  default = "app-nic"
 }
 variable "app_subnet_id" {
   description = "ID of the subnet"
