@@ -26,3 +26,4 @@ module "compute" {
   # db_nsg_id = module.network.db_nsg_id
 }
 
+#destroy resources
