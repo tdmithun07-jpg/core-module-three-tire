@@ -62,7 +62,7 @@ resource "azurerm_linux_virtual_machine" "web-vm" {
   source_image_reference {
     publisher = "Canonical"
     offer     = "0001-com-ubuntu-server-focal"
-    sku       = "22_04-lts-gen2"
+    sku       = "20_04-lts-gen2"
     version   = "latest"
   }
 
@@ -114,7 +114,7 @@ resource "azurerm_linux_virtual_machine" "app-vm" {
   source_image_reference {
     publisher = "Canonical"
     offer     = "0001-com-ubuntu-server-focal"
-    sku       = "22_04-lts-gen2"
+    sku       = "20_04-lts-gen2"
     version   = "latest"
   }
   #depends_on = [ var.app_network_interface_ids ]
@@ -163,7 +163,7 @@ resource "azurerm_linux_virtual_machine" "db-vm" {
   source_image_reference {
     publisher = "Canonical"
     offer     = "0001-com-ubuntu-server-focal"
-    sku       = "22_04-lts-gen2"
+    sku       = "20_04-lts-gen2"
     version   = "latest"
   }
   #depends_on = [ var.db_network_interface_ids ]
