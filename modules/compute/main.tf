@@ -1,10 +1,10 @@
 data "azurerm_key_vault" "kv" {
-  name                = "dev-keyvault-1612"
+  name                = "dev-keyvault-1201"
   resource_group_name = "keyvault-rg"
 }
 
 data "azurerm_key_vault_secret" "ssh_public_key" {
-  name         = "vm1-ssh-public"
+  name         = "sshkey1201-pub"
   key_vault_id = data.azurerm_key_vault.kv.id
 }
 

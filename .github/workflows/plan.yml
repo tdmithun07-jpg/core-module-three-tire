@@ -32,17 +32,17 @@ jobs:
         run: terraform validate
         working-directory: ./environments/dev
 
-      # - name: Terraform Plan
-      #   id: plan
-      #   run: terraform plan
-      #   working-directory: ./environments/dev
+      - name: Terraform Plan
+        id: plan
+        run: terraform plan
+        working-directory: ./environments/dev
 
       # - name: terraform apply
       #   id: apply
       #   run: terraform apply -auto-approve
       #   working-directory: ./environments/dev
 
-      - name : terraform destroy
-        id: destroy
-        run: terraform destroy -auto-approve
-        working-directory: ./environments/dev
+      # - name : terraform destroy
+      #   id: destroy
+      #   run: terraform destroy -auto-approve
+      #   working-directory: ./environments/dev
