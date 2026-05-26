@@ -1,7 +1,7 @@
 module "resource_group" {
   source = "github.com/tdmithun07-jpg/core-module-three-tire/modules/rg"
 }
-#test
+
 module "network" {
   source              = "github.com/tdmithun07-jpg/core-module-three-tire/modules/networking"
   resource_group_name = module.resource_group.resource_group_name
