@@ -4,7 +4,7 @@ data "azurerm_key_vault" "kv" {
 }
 
 data "azurerm_key_vault_secret" "ssh_public_key" {
-  name         = "sshkey1201-pub"
+  name         = "sshkey-2605"
   key_vault_id = data.azurerm_key_vault.kv.id
 }
 
